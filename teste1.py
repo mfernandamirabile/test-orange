@@ -31,7 +31,7 @@ navegador.find_element('xpath','//*[@id="root"]/main/header/div[1]/div/a[2]').cl
 sleep(5)
 
 # Testa a impossibilidade de buscar po Nome do autor
-navegador.find_element('xpath', '//*[@id="outlined-helperText"]').send_keys('web')
+navegador.find_element('xpath', '//*[@id="outlined-helperText"]').send_keys('Lucas')
 sleep(2)
 
 # Verifica se nenhum elemento correspondente ao resultado da busca é encontrado
