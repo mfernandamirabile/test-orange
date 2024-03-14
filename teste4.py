@@ -38,8 +38,9 @@ primeiro_elemento = div_projetos.find_element('xpath', './*[1]').click()#selecio
 sleep(5)
 
 # Testa a funcionalidade de baixar o projeto
-div_pop_up = navegador.find_element('xpath', '/html/body/div[18]/div[3]/div') #localiza a div que contém o pop up
-footer_pop_up = navegador.find_element('xpath', '/html/body/div[18]/div[3]/div/footer') #localiza o footer do pop up
+#como a div do primeiro elemento muda a depnder de quantos projetos tem, foi acrescentado o [last()] para buscar sempre a última div, que corresponde ao primeiro projeto aparente.
+div_pop_up = navegador.find_element('xpath', '/html/body/div[last()]/div[3]/div') #localiza a div que contém o pop up
+footer_pop_up = navegador.find_element('xpath', '/html/body/div[last()]/div[3]/div/footer') #localiza o footer do pop up
 link_download = footer_pop_up.find_element('xpath', './/a').click() #seleciona o link de download dentro do footer pop up
 sleep(2) 
 
