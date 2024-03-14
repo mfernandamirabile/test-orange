@@ -46,13 +46,14 @@ sleep(3)
 
 # Testa a funcionalidade de visualizar o projeto
 primeiro_elemento.click()
-sleep(2)
+sleep(5)
 
 # Obtém o src da imagem do pop-up
-src_pop_up = navegador.find_element('xpath', '/html/body/div[18]/div[3]/div/div/img').get_attribute('src')
+src_pop_up = navegador.find_element('xpath', 'html/body//div[last()]/div[3]/div/div/img').get_attribute('src') #como a div do primeiro elemento muda a depnder de quantos projetos tem, foi acrescentado o [last()] para buscar sempre a última div, que corresponde ao primeiro projeto aparente
+sleep(2)
 
 # Obtém o nome do autor e data do pop up
-nome_pop_up = navegador.find_element('xpath', '/html/body/div[18]/div[3]/div/div/div/div[1]/p').get_attribute('innerText')
+nome_pop_up = navegador.find_element('xpath', '/html/body//div[last()]/div[3]/div/div/div/div[1]/p').get_attribute('innerText')
 
 # verifica se a imagem, nome a data da pré-visualização são os mesmos do pop-up
 try:
