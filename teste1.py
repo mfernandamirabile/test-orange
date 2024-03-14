@@ -30,7 +30,7 @@ sleep(5)
 navegador.find_element('xpath','//*[@id="root"]/main/header/div[1]/div/a[2]').click() 
 sleep(5)
 
-# Testa a impossibilidade de buscar po Nome do autor
+# Testa a impossibilidade de buscar por Nome do autor
 navegador.find_element('xpath', '//*[@id="outlined-helperText"]').send_keys('Lucas')
 sleep(2)
 
