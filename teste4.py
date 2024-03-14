@@ -4,6 +4,9 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.service import Service  # Importa a classe Service
 import os
 import glob
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 '''
 Esse código tem como objetivo 
@@ -30,12 +33,15 @@ navegador.find_element('xpath','//*[@id="root"]/main/header/div[1]/div/a[2]').cl
 sleep(5)
 
 # Testa a funcionalidade de visualizar o projeto
-navegador.find_element('xpath', '//*[@id="root"]/main/div/div[3]/button[1]/img').click()
+div_projetos = navegador.find_element('xpath', '//*[@id="root"]/main/div/div[3]')#localiza a div que contém os projetos
+primeiro_elemento = div_projetos.find_element('xpath', './*[1]').click()#seleciona o primeiro elemento filho dentro da div
 sleep(5)
 
 # Testa a funcionalidade de baixar o projeto
-navegador.find_element('xpath', '/html/body/div[19]/div[3]/div/footer/a').click()
-sleep(1)
+div_pop_up = navegador.find_element('xpath', '/html/body/div[20]/div[3]/div') #localiza a div que contém o pop up
+footer_pop_up = navegador.find_element('xpath', '/html/body/div[20]/div[3]/div/footer') #localiza o footer do pop up
+link_download = footer_pop_up.find_element('xpath', './/a').click() #seleciona o link de download dentro do footer pop up
+sleep(2) 
 
 # Diretório de downloads padrão
 diretorio_downloads = os.path.expanduser('~') + '/Downloads/'
