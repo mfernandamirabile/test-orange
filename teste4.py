@@ -25,7 +25,7 @@ navegador.find_element('xpath',' //*[@id=":r1:"] ').send_keys('12345678') #senha
 sleep(2)
 
 navegador.find_element('xpath',' //*[@id=":r2:"]').click() #botaoentrar
-sleep(5)
+sleep(7)
 
 
 # Entra na aba Descobrir
