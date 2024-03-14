@@ -28,28 +28,28 @@ sleep(5)
 navegador.find_element('xpath','//*[@id="root"]/main/header/div[1]/div/a[2]').click() 
 sleep(5)
 
-# Verifica se nenhum elemento correspondente ao resultado da busca é encontrado
-# try:
-#     resultados = navegador.find_elements('xpath', '/html/body/div[19]/div[3]/div/div/img') # verifica se é a mesma imagem da pré-visualização 
-#     assert resultados is True, "Imagem não é a mesma da pré-visualização."
-#     print('Caso de teste 002 obteve sucesso!')
-# except AssertionError as e:
-#     print(str(e))
+# Testa a funcionalidade de visualizar o projeto
+div_projetos = navegador.find_element('xpath', '//*[@id="root"]/main/div/div[3]')#localiza a div que contém os projetos
+primeiro_elemento = div_projetos.find_element('xpath', './*[1]')
+sleep(5)
+
 
 # Obtém o src da imagem de pré-visualização
-src_pre_visualizacao = navegador.find_element(By.XPATH, '//*[@id="root"]/main/div/div[3]/button[1]/img').get_attribute('src')
+img_primeiro_elemento = primeiro_elemento.find_element('xpath', './/img')
+src_pre_visualizacao = img_primeiro_elemento.get_attribute('src')
 sleep(2)
 
 # Testa a funcionalidade de visualizar o projeto
-navegador.find_element('xpath', '//*[@id="root"]/main/div/div[3]/button[1]/img').click()
+primeiro_elemento.click()
 sleep(2)
 
 # Obtém o src da imagem do pop-up
-src_popup = navegador.find_element(By.XPATH, '/html/body/div[19]/div[3]/div/div/img').get_attribute('src')
+src_pop_up = navegador.find_element('xpath', '/html/body/div[18]/div[3]/div/div/img').get_attribute('src')
 
+# verifica se a imagem da pré-visualização é a mesma do pop-up
 try:
     # Compara os srcs
-    assert src_pre_visualizacao == src_popup, "As imagens de pré-visualização e do pop-up são diferentes."
+    assert src_pre_visualizacao == src_pop_up, "As imagens de pré-visualização e do pop-up são diferentes."
     print('Caso de teste 002 obteve sucesso!')
 except AssertionError as e:
     print(str(e))
