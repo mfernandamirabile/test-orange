@@ -46,7 +46,7 @@ sleep(2)
 # Diretório de downloads padrão
 diretorio_downloads = os.path.expanduser('~') + '/Downloads/'
 
-# Verifique se existe um arquivo com a extensão .crdownload (que indica que o download está em andamento)
+# Verifica se existe um arquivo com a extensão .crdownload (que indica que o download está em andamento)
 try:
     arquivos_em_andamento = glob.glob(diretorio_downloads + '*.crdownload')
     assert arquivos_em_andamento, "O download não foi iniciado."
